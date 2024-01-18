@@ -1,0 +1,1360 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="Logo_1080x1080_blue.png"/>
+        <link rel="apple-touch-icon" href="Logo_1080x1080_blue.png"/>
+
+        <title>Being This Guy</title>
+
+        <!-- CSS FILES --> 
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        
+        <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
+                        
+        <link href="bootstrap.min.css" rel="stylesheet">
+
+        <link href="bootstrap-icons.css" rel="stylesheet">
+
+        <link href="templatemo-topic-listing.css" rel="stylesheet">  
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        
+        <link href="https://cdn.datatables.net/v/bs5/jq-3.7.0/dt-1.13.8/kt-2.11.0/r-2.5.0/sc-2.3.0/sb-1.6.0/datatables.min.css" rel="stylesheet">
+
+
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $("#searchButton").on("click", function() {
+                    // Get the search term from the input field
+                    var searchTerm = $("#searchInput").val().toLowerCase();
+    
+                    // Iterate through each tab and block
+                    $(".nav-link, .custom-block").each(function() {
+                        var tabContent = $(this).text().toLowerCase();
+    
+                        // Check if the search term is present in the tab content or block content
+                        if (tabContent.includes(searchTerm)) {
+                            // Scroll to the tab
+                            $($(this).data("bs-target"))[0].scrollIntoView();
+    
+                            // Highlight the found tab
+                            $(this).tab("show");
+    
+                            // Exit the loop after finding the first match
+                            return false;
+                        }
+                    });
+                });
+            });
+        </script>
+    </head>
+    
+    <body id="top">
+
+        <main>
+
+            <nav class="navbar navbar-expand-lg">
+                <div class="container">
+                    <a class="navbar-brand" href="#top">
+                        <img src="being_this_guy_image.png" class="main-logo smoothscroll" alt="main logo">
+                        <!-- <span>Topic</span> -->
+                    </a>
+
+                    <!-- <div class="d-lg-none ms-auto me-4">
+                        <a href="#top" class="navbar-icon bi-person smoothscroll"></a>
+                    </div> -->
+    
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+    
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-lg-5 me-lg-auto">
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_1">Home</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_2">Browse Products</a>
+                            </li>
+    
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_3">How it works</a>
+                            </li>
+
+                            <!-- <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_4">FAQs</a>
+                            </li> -->
+    
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#footer-bar">Contact</a>
+                            </li>
+
+                            <!-- <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
+
+                                <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="topics-listing.html">Products Listing</a></li>
+
+                                    <li><a class="dropdown-item" href="contact.html">Contact Form</a></li>
+                                </ul>
+                            </li> -->
+                        </ul>
+
+                        <!-- <div class="d-none d-lg-block">
+                            <a href="#top" class="navbar-icon bi-person smoothscroll"></a>
+                        </div> -->
+                    </div>
+                </div>
+            </nav>
+            
+
+            <section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-8 col-12 mx-auto">
+                            <h1 class="text-white text-center">Explore your bucket list now!</h1>
+
+                            <!-- <h6 class="text-center">Explore your bucket list now!</h6> -->
+
+                            <div method=get class="custom-form mt-4 pt-2 mb-lg-0 mb-5" role="search">
+                                <div class="input-group input-group-lg">
+                                    <span class="input-group-text bi-search" id="basic-addon1">
+                                    </span>    
+                                    <input type="search" id="searchInput" class="form-control" placeholder="Your product ID..." onkeydown="handleKeyPress(event)">
+                                    <button onclick="serchindb()" type="submit" class="form-control">Search</button>
+                                </div>
+                            </div>
+                            <script>
+                                function handleKeyPress(event) {
+                                    // Check if the pressed key is Enter (key code 13)
+                                    if (event.keyCode === 13) {
+                                        // Prevent the default form submission behavior
+                                        event.preventDefault();
+                                        
+                                        // Call your search function
+                                        serchindb();
+                                    }
+                                }
+
+                                function gettheid(elements,searchvalue){
+                                    let resultKeys = [];
+
+                                    // Iterate through the elementsect
+                                    for (const key in elements) {
+                                        console.log(elements[key][0])
+                                        for(const i in elements[key]){
+                                            if(elements[key][i]==searchvalue){
+                                                return key;
+                                            }
+                                        }
+                                    }
+                                }
+                                function serchindb(){
+                                    
+                                    const elements = {
+                                        "design":[14,75,35,45,55,95,100],
+                                        "marketing":[30,65,50]
+                                    }
+                                    const searchinput= document.getElementById("searchInput");
+                                    let searchvalue = searchinput.value 
+                                    console.log(searchinput,searchvalue)
+                                    searchvalue = Number(searchvalue)
+                                    console.log(searchvalue)
+                                    const id = gettheid(elements,searchvalue)
+                                    console.log("id = ",id)
+                                    const elmnt = document.getElementById('el-'+searchvalue)
+                                    elmnt.scrollIntoView({
+                                        block: 'center'  // This centers the element vertically
+                                    })
+                                }
+
+                                
+                                
+                            
+                                // Example: Scroll and open the "marketing" tab after a delay of 2 seconds (2000 milliseconds)
+                                
+                                
+                            </script>
+                            
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="featured-section">
+                <div class="container">
+                    <div class="row justify-content-center">
+
+                        <div class="col-lg-4 col-12 mb-l">
+                            <!-- mb-4  this can be used above -->
+                            <div class="custom-block bg-white shadow-lg">
+                                <a href="topics-detail.html">
+                                    <!-- <div class="d-flex">
+                                        <div>
+                                            <h5 class="mb-2">Web Design</h5>
+
+                                            <p class="mb-0">When you search for free CSS templates, you will notice that TemplateMo is one of the best websites.</p>
+                                        </div>
+
+                                        <span class="badge bg-blue rounded-pill ms-auto">14</span>
+                                    </div> -->
+
+                                    <img src="Being_this_guy_written.png" class="custom-block-image img-fluid" alt="">
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-12">
+                            <div class="custom-block custom-block-overlay">
+                                <div class="d-flex flex-column h-100">
+                                    <img src="businesswoman-using-tablet-analysis.jpg" class="custom-block-image img-fluid" alt="">
+
+                                    <div class="custom-block-overlay-text d-flex">
+                                        <div>
+                                            <h5 class="text-white mb-2">About Us</h5>
+                                            <br>
+
+                                            <p class="text-white">Being This Guy, we're a dynamic marketing agency dedicated to elevating your brand. From strategic planning to creative execution, we deliver impactful campaigns that resonate and drive meaningful engagement.</p>
+
+                                            <a href="about-us.html" class="btn custom-btn mt-2 mt-lg-3">Learn More</a>
+                                        </div>
+
+                                        <!-- <span class="badge bg-finance rounded-pill ms-auto">25</span> -->
+                                    </div>
+
+                                    <div class="social-share d-flex">
+                                        <!-- <p class="text-white me-4">Share:</p> -->
+                                        <a href="#" class="custom-icon ms-auto"></a>
+
+                                        <ul class="social-icon">
+                                            <li class="social-icon-item">
+                                                <a href="https://pin.it/TezYyiaQ0" target=”_blank” class="social-icon-link bi-pinterest"></a>
+                                            </li>
+
+                                            <li class="social-icon-item">
+                                                <a href="https://www.instagram.com/being_this_guy?igsh=MzRlODBiNWFlZA==" target=”_blank” class="social-icon-link bi-instagram"></a>
+                                            </li>
+
+                                            <li class="social-icon-item">
+                                                <a href="" target=”_blank” class="social-icon-link bi-facebook"></a>
+                                            </li>
+                                        </ul>
+
+                                        
+                                    </div>
+
+                                    <div class="section-overlay"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="explore-section section-padding" id="section_2">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-12 text-center">
+                            <h2 class="mb-4">Browse Products</h2>
+                        </div>
+
+                    </div>
+                </div>
+                <br>
+
+                <!-- <div class="container-fluid">
+                    <div class="row">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li id="design-tab-filter" class="nav-item" role="presentation">
+                                <button class="nav-link active" id="design-tab" data-bs-toggle="tab" data-bs-target="#design-tab-pane" type="button" role="tab" aria-controls="design-tab-pane" aria-selected="true">Design</button>
+                            </li>
+
+                            <li id="marketing-tab-filter" class="nav-item" role="presentation">
+                                <button class="nav-link" id="marketing-tab" data-bs-toggle="tab" data-bs-target="#marketing-tab-pane" type="button" role="tab" aria-controls="marketing-tab-pane" aria-selected="false">Marketing</button>
+                            </li>
+
+                            <li id="finance-tab-filter" class="nav-item" role="presentation">
+                                <button class="nav-link" id="finance-tab" data-bs-toggle="tab" data-bs-target="#finance-tab-pane" type="button" role="tab" aria-controls="finance-tab-pane" aria-selected="false">Finance</button>
+                            </li>
+
+                            <li id="music-tab-filter" class="nav-item" role="presentation">
+                                <button class="nav-link" id="music-tab" data-bs-toggle="tab" data-bs-target="#music-tab-pane" type="button" role="tab" aria-controls="music-tab-pane" aria-selected="false">Music</button>
+                            </li>
+
+                            <li id="education-tab-filter" class="nav-item" role="presentation">
+                                <button class="nav-link" id="education-tab" data-bs-toggle="tab" data-bs-target="#education-tab-pane" type="button" role="tab" aria-controls="education-tab-pane" aria-selected="false">Education</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div> -->
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-12 text-center">
+                            <h5 class="mb-4">Fashion</h5>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12" id="all_tabs">
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="design-tab-pane" role="tabpanel" aria-labelledby="design-tab" tabindex="0">                                  
+                                    <div class="row">
+                                        <div id="el-101" class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="topics-detail.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Web Design</h5>
+
+                                                            <p class="mb-0">Topic Listing Template based on Bootstrap 5</p>
+                                                        </div>
+
+                                                        <span class="badge bg-blue rounded-pill ms-auto">101</span>
+                                                    </div>
+
+                                                    <!-- <img src="images/topics/undraw_Remote_design_team_re_urdx.png" class="custom-block-image img-fluid" alt=""> -->
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div id="el-102" class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="topics-detail.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Graphic</h5>
+
+                                                                <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                        </div>
+
+                                                        <span class="badge bg-blue rounded-pill ms-auto">102</span>
+                                                    </div>
+
+                                                    <!-- <img src="images/topics/undraw_Redesign_feedback_re_jvm0.png" class="custom-block-image img-fluid" alt=""> -->
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div id="el-103" class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="topics-detail.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Graphic</h5>
+
+                                                                <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                        </div>
+
+                                                        <span class="badge bg-blue rounded-pill ms-auto">103</span>
+                                                    </div>
+
+                                                    <!-- <img src="images/topics/undraw_Redesign_feedback_re_jvm0.png" class="custom-block-image img-fluid" alt=""> -->
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div id="el-104" class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="topics-detail.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Graphic</h5>
+
+                                                                <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                        </div>
+
+                                                        <span class="badge bg-blue rounded-pill ms-auto">104</span>
+                                                    </div>
+
+                                                    <!-- <img src="images/topics/undraw_Redesign_feedback_re_jvm0.png" class="custom-block-image img-fluid" alt=""> -->
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div id="el-105" class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="topics-detail.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Graphic</h5>
+
+                                                                <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                        </div>
+
+                                                        <span class="badge bg-blue rounded-pill ms-auto">105</span>
+                                                    </div>
+
+                                                    <!-- <img src="images/topics/undraw_Redesign_feedback_re_jvm0.png" class="custom-block-image img-fluid" alt=""> -->
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div id="el-106" class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="topics-detail.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Graphic</h5>
+
+                                                                <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                        </div>
+
+                                                        <span class="badge bg-blue rounded-pill ms-auto">106</span>
+                                                    </div>
+
+                                                    <!-- <img src="images/topics/undraw_Redesign_feedback_re_jvm0.png" class="custom-block-image img-fluid" alt=""> -->
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div id="el-107" class="col-lg-4 col-md-6 col-12">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="topics-detail.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Logo Design</h5>
+
+                                                                <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                        </div>
+
+                                                        <span class="badge bg-blue rounded-pill ms-auto">107</span>
+                                                    </div>
+
+                                                    <!-- <img src="images/topics/colleagues-working-cozy-office-medium-shot.png" class="custom-block-image img-fluid" alt=""> -->
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-12 text-center">
+                            <h5 class="mb-4">Tech-Gadgets</h5>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12" id="all_tabs">
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="design-tab-pane" role="tabpanel" aria-labelledby="design-tab" tabindex="0">                                  
+                                    <div class="row">
+                                        <div id="el-201" class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="topics-detail.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Web Design</h5>
+
+                                                            <p class="mb-0">Topic Listing Template based on Bootstrap 5</p>
+                                                        </div>
+
+                                                        <span class="badge bg-blue rounded-pill ms-auto">201</span>
+                                                    </div>
+
+                                                    <!-- <img src="images/topics/undraw_Remote_design_team_re_urdx.png" class="custom-block-image img-fluid" alt=""> -->
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div id="el-202" class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="topics-detail.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Graphic</h5>
+
+                                                                <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                        </div>
+
+                                                        <span class="badge bg-blue rounded-pill ms-auto">202</span>
+                                                    </div>
+
+                                                    <!-- <img src="images/topics/undraw_Redesign_feedback_re_jvm0.png" class="custom-block-image img-fluid" alt=""> -->
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div id="el-203" class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="topics-detail.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Graphic</h5>
+
+                                                                <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                        </div>
+
+                                                        <span class="badge bg-blue rounded-pill ms-auto">203</span>
+                                                    </div>
+
+                                                    <!-- <img src="images/topics/undraw_Redesign_feedback_re_jvm0.png" class="custom-block-image img-fluid" alt=""> -->
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div id="el-204" class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="topics-detail.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Graphic</h5>
+
+                                                                <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                        </div>
+
+                                                        <span class="badge bg-blue rounded-pill ms-auto">204</span>
+                                                    </div>
+
+                                                    <!-- <img src="images/topics/undraw_Redesign_feedback_re_jvm0.png" class="custom-block-image img-fluid" alt=""> -->
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div id="el-205" class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="topics-detail.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Graphic</h5>
+
+                                                                <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                        </div>
+
+                                                        <span class="badge bg-blue rounded-pill ms-auto">205</span>
+                                                    </div>
+
+                                                    <!-- <img src="images/topics/undraw_Redesign_feedback_re_jvm0.png" class="custom-block-image img-fluid" alt=""> -->
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div id="el-206" class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="topics-detail.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Graphic</h5>
+
+                                                                <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                        </div>
+
+                                                        <span class="badge bg-blue rounded-pill ms-auto">206</span>
+                                                    </div>
+
+                                                    <!-- <img src="images/topics/undraw_Redesign_feedback_re_jvm0.png" class="custom-block-image img-fluid" alt=""> -->
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div id="el-207" class="col-lg-4 col-md-6 col-12">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="topics-detail.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Logo Design</h5>
+
+                                                                <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                        </div>
+
+                                                        <span class="badge bg-blue rounded-pill ms-auto">207</span>
+                                                    </div>
+
+                                                    <!-- <img src="images/topics/colleagues-working-cozy-office-medium-shot.png" class="custom-block-image img-fluid" alt=""> -->
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-12 text-center">
+                            <h5 class="mb-4">Jewellery</h5>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12" id="all_tabs">
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="design-tab-pane" role="tabpanel" aria-labelledby="design-tab" tabindex="0">                                  
+                                    <div class="row">
+                                        <div id="el-301" class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="topics-detail.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Web Design</h5>
+
+                                                            <p class="mb-0">Topic Listing Template based on Bootstrap 5</p>
+                                                        </div>
+
+                                                        <span class="badge bg-blue rounded-pill ms-auto">301</span>
+                                                    </div>
+
+                                                    <!-- <img src="images/topics/undraw_Remote_design_team_re_urdx.png" class="custom-block-image img-fluid" alt=""> -->
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div id="el-302" class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="topics-detail.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Graphic</h5>
+
+                                                                <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                        </div>
+
+                                                        <span class="badge bg-blue rounded-pill ms-auto">302</span>
+                                                    </div>
+
+                                                    <!-- <img src="images/topics/undraw_Redesign_feedback_re_jvm0.png" class="custom-block-image img-fluid" alt=""> -->
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div id="el-303" class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="topics-detail.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Graphic</h5>
+
+                                                                <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                        </div>
+
+                                                        <span class="badge bg-blue rounded-pill ms-auto">303</span>
+                                                    </div>
+
+                                                    <!-- <img src="images/topics/undraw_Redesign_feedback_re_jvm0.png" class="custom-block-image img-fluid" alt=""> -->
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div id="el-304" class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="topics-detail.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Graphic</h5>
+
+                                                                <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                        </div>
+
+                                                        <span class="badge bg-blue rounded-pill ms-auto">304</span>
+                                                    </div>
+
+                                                    <!-- <img src="images/topics/undraw_Redesign_feedback_re_jvm0.png" class="custom-block-image img-fluid" alt=""> -->
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div id="el-305" class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="topics-detail.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Graphic</h5>
+
+                                                                <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                        </div>
+
+                                                        <span class="badge bg-blue rounded-pill ms-auto">305</span>
+                                                    </div>
+
+                                                    <!-- <img src="images/topics/undraw_Redesign_feedback_re_jvm0.png" class="custom-block-image img-fluid" alt=""> -->
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div id="el-306" class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="topics-detail.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Graphic</h5>
+
+                                                                <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                        </div>
+
+                                                        <span class="badge bg-blue rounded-pill ms-auto">306</span>
+                                                    </div>
+
+                                                    <!-- <img src="images/topics/undraw_Redesign_feedback_re_jvm0.png" class="custom-block-image img-fluid" alt=""> -->
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div id="el-307" class="col-lg-4 col-md-6 col-12">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="topics-detail.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Logo Design</h5>
+
+                                                                <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                        </div>
+
+                                                        <span class="badge bg-blue rounded-pill ms-auto">307</span>
+                                                    </div>
+
+                                                    <!-- <img src="images/topics/colleagues-working-cozy-office-medium-shot.png" class="custom-block-image img-fluid" alt=""> -->
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-12 text-center">
+                            <h5 class="mb-4">Books</h5>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12" id="all_tabs">
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="design-tab-pane" role="tabpanel" aria-labelledby="design-tab" tabindex="0">                                  
+                                    <div class="row">
+                                        <div id="el-401" class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="topics-detail.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Web Design</h5>
+
+                                                            <p class="mb-0">Topic Listing Template based on Bootstrap 5</p>
+                                                        </div>
+
+                                                        <span class="badge bg-blue rounded-pill ms-auto">401</span>
+                                                    </div>
+
+                                                    <!-- <img src="images/topics/undraw_Remote_design_team_re_urdx.png" class="custom-block-image img-fluid" alt=""> -->
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div id="el-402" class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="topics-detail.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Graphic</h5>
+
+                                                                <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                        </div>
+
+                                                        <span class="badge bg-blue rounded-pill ms-auto">402</span>
+                                                    </div>
+
+                                                    <!-- <img src="images/topics/undraw_Redesign_feedback_re_jvm0.png" class="custom-block-image img-fluid" alt=""> -->
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div id="el-403" class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="topics-detail.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Graphic</h5>
+
+                                                                <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                        </div>
+
+                                                        <span class="badge bg-blue rounded-pill ms-auto">403</span>
+                                                    </div>
+
+                                                    <!-- <img src="images/topics/undraw_Redesign_feedback_re_jvm0.png" class="custom-block-image img-fluid" alt=""> -->
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div id="el-404" class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="topics-detail.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Graphic</h5>
+
+                                                                <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                        </div>
+
+                                                        <span class="badge bg-blue rounded-pill ms-auto">404</span>
+                                                    </div>
+
+                                                    <!-- <img src="images/topics/undraw_Redesign_feedback_re_jvm0.png" class="custom-block-image img-fluid" alt=""> -->
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div id="el-405" class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="topics-detail.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Graphic</h5>
+
+                                                                <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                        </div>
+
+                                                        <span class="badge bg-blue rounded-pill ms-auto">405</span>
+                                                    </div>
+
+                                                    <!-- <img src="images/topics/undraw_Redesign_feedback_re_jvm0.png" class="custom-block-image img-fluid" alt=""> -->
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div id="el-406" class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="topics-detail.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Graphic</h5>
+
+                                                                <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                        </div>
+
+                                                        <span class="badge bg-blue rounded-pill ms-auto">406</span>
+                                                    </div>
+
+                                                    <!-- <img src="images/topics/undraw_Redesign_feedback_re_jvm0.png" class="custom-block-image img-fluid" alt=""> -->
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div id="el-407" class="col-lg-4 col-md-6 col-12">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="topics-detail.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Logo Design</h5>
+
+                                                                <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                        </div>
+
+                                                        <span class="badge bg-blue rounded-pill ms-auto">407</span>
+                                                    </div>
+
+                                                    <!-- <img src="images/topics/colleagues-working-cozy-office-medium-shot.png" class="custom-block-image img-fluid" alt=""> -->
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-12 text-center">
+                            <h5 class="mb-4">Others</h5>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12" id="all_tabs">
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="design-tab-pane" role="tabpanel" aria-labelledby="design-tab" tabindex="0">                                  
+                                    <div class="row">
+                                        <div id="el-501" class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="topics-detail.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Web Design</h5>
+
+                                                            <p class="mb-0">Topic Listing Template based on Bootstrap 5</p>
+                                                        </div>
+
+                                                        <span class="badge bg-blue rounded-pill ms-auto">501</span>
+                                                    </div>
+
+                                                    <!-- <img src="images/topics/undraw_Remote_design_team_re_urdx.png" class="custom-block-image img-fluid" alt=""> -->
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div id="el-502" class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="topics-detail.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Graphic</h5>
+
+                                                                <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                        </div>
+
+                                                        <span class="badge bg-blue rounded-pill ms-auto">502</span>
+                                                    </div>
+
+                                                    <!-- <img src="images/topics/undraw_Redesign_feedback_re_jvm0.png" class="custom-block-image img-fluid" alt=""> -->
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div id="el-503" class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="topics-detail.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Graphic</h5>
+
+                                                                <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                        </div>
+
+                                                        <span class="badge bg-blue rounded-pill ms-auto">503</span>
+                                                    </div>
+
+                                                    <!-- <img src="images/topics/undraw_Redesign_feedback_re_jvm0.png" class="custom-block-image img-fluid" alt=""> -->
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div id="el-504" class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="topics-detail.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Graphic</h5>
+
+                                                                <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                        </div>
+
+                                                        <span class="badge bg-blue rounded-pill ms-auto">504</span>
+                                                    </div>
+
+                                                    <!-- <img src="images/topics/undraw_Redesign_feedback_re_jvm0.png" class="custom-block-image img-fluid" alt=""> -->
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div id="el-505" class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="topics-detail.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Graphic</h5>
+
+                                                                <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                        </div>
+
+                                                        <span class="badge bg-blue rounded-pill ms-auto">505</span>
+                                                    </div>
+
+                                                    <!-- <img src="images/topics/undraw_Redesign_feedback_re_jvm0.png" class="custom-block-image img-fluid" alt=""> -->
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div id="el-506" class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="topics-detail.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Graphic</h5>
+
+                                                                <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                        </div>
+
+                                                        <span class="badge bg-blue rounded-pill ms-auto">506</span>
+                                                    </div>
+
+                                                    <!-- <img src="images/topics/undraw_Redesign_feedback_re_jvm0.png" class="custom-block-image img-fluid" alt=""> -->
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div id="el-507" class="col-lg-4 col-md-6 col-12">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="topics-detail.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Logo Design</h5>
+
+                                                                <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                        </div>
+
+                                                        <span class="badge bg-blue rounded-pill ms-auto">507</span>
+                                                    </div>
+
+                                                    <!-- <img src="images/topics/colleagues-working-cozy-office-medium-shot.png" class="custom-block-image img-fluid" alt=""> -->
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="timeline-section section-padding" id="section_3">
+                <div class="section-overlay"></div>
+
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-12 text-center">
+                            <h2 class="text-white mb-4">How does it work?</h1>
+                        </div>
+
+                        <div class="col-lg-10 col-12 mx-auto">
+                            <div class="timeline-container">
+                                <ul class="vertical-scrollable-timeline" id="vertical-scrollable-timeline">
+                                    <div class="list-progress">
+                                        <div class="inner"></div>
+                                    </div>
+
+                                    <li>
+                                        <h4 class="text-white mb-3">Search Your Product</h4>
+
+                                        <p class="text-white">Embark on your shopping journey with ease! Search Your Product effortlessly using our user-friendly interface. Discover a curated selection of quality items tailored to your preferences.</p>
+
+                                        <div class="icon-holder">
+                                          <i class="bi-search"></i>
+                                        </div>
+                                    </li>
+                                    
+                                    <li>
+                                        <h4 class="text-white mb-3">Go to the product's website</h4>
+
+                                        <p class="text-white">Now, kindly proceed to the product's official website. Explore a world of innovation and quality directly from the source. Your desired product awaits – simply click and delve into a seamless shopping experience.</p>
+
+                                        <div class="icon-holder">
+                                          <i class="bi-link"></i>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <h4 class="text-white mb-3">Buy &amp; Enjoy</h4>
+
+                                        <p class="text-white">It's time to Buy & Enjoy! Click 'Add to Cart,' securely complete your purchase, and relish the anticipation. Your selected items will soon arrive, bringing joy and satisfaction to your doorstep. Happy shopping!</p>
+
+                                        <div class="icon-holder">
+                                          <i class="bi-cart-check-fill"></i>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- <div class="col-12 text-center mt-5">
+                            <p class="text-white">
+                                Want to learn more?
+                                <a href="#" class="btn custom-btn custom-border-btn ms-3">Check out Youtube</a>
+                            </p>
+                        </div> -->
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- <section class="faq-section section-padding" id="section_4">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-6 col-12">
+                            <h2 class="mb-4">Frequently Asked Questions</h2>
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <div class="col-lg-5 col-12">
+                            <img src="images/faq_graphic.jpg" class="img-fluid" alt="FAQs">
+                        </div>
+
+                        <div class="col-lg-6 col-12 m-auto">
+                            <div class="accordion" id="accordionExample">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingOne">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        What is Topic Listing?
+                                        </button>
+                                    </h2>
+
+                                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            Topic Listing is free Bootstrap 5 CSS template. <strong>You are not allowed to redistribute this template</strong> on any other template collection website without our permission. Please contact TemplateMo for more detail. Thank you.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingTwo">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        How to find a topic?
+                                    </button>
+                                    </h2>
+
+                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            You can search on Google with <strong>keywords</strong> such as templatemo portfolio, templatemo one-page layouts, photography, digital marketing, etc.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingThree">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        Does it need to paid?
+                                    </button>
+                                    </h2>
+
+                                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section> -->
+
+
+            <!-- <section class="contact-section section-padding section-bg" id="section_5">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-12 col-12 text-center">
+                            <h2 class="mb-5">Get in touch</h2>
+                        </div>
+
+                        <div class="col-lg-5 col-12 mb-4 mb-lg-0">
+                            <iframe class="google-map" src="https://www.google.co.in/maps/place/Pune,+Maharashtra/@18.5245985,73.7803948,12z/data=!3m1!4b1!4m6!3m5!1s0x3bc2bf2e67461101:0x828d43bf9d9ee343!8m2!3d18.5204303!4d73.8567437!16zL20vMDE1eTJx?entry=ttu" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+
+                        <div class="col-lg-0 col-md-6 col-12 mb-3 mb-lg- mb-md-0 ms-auto">
+                            <h4 class="mb-3">Head office</h4>
+
+                            <p>Pune, Maharashtra, India</p>
+
+                            <hr>
+
+                            <p class="d-flex align-items-center mb-1">
+                                <span class="me-2">Phone</span>
+
+                                <a href="tel: 958-800-8144" class="site-footer-link">
+                                    958-800-8144
+                                </a>
+                            </p>
+
+                            <p class="d-flex align-items-center">
+                                <span class="me-2">Email</span>
+
+                                <a href="mailto:beingthisguy.btg@gmail.com" class="site-footer-link">
+                                    beingthisguy.btg@gmail.com
+                                </a>
+                            </p>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-12 mx-auto">
+                            <h4 class="mb-3">Dubai office</h4>
+
+                            <p>Burj Park, Downtown Dubai, United Arab Emirates</p>
+
+                            <hr>
+
+                            <p class="d-flex align-items-center mb-1">
+                                <span class="me-2">Phone</span>
+
+                                <a href="tel: 958-800-8144" class="site-footer-link">
+                                    958-800-8144
+                                </a>
+                            </p>
+
+                            <p class="d-flex align-items-center">
+                                <span class="me-2">Email</span>
+
+                                <a href="beingthisguy.btg@gmail.com" class="site-footer-link">
+                                    beingthisguy.btg@gmail.com
+                                </a>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </section> -->
+        </main>
+
+<footer id="footer-bar" class="site-footer section-padding">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-3 col-12 mb-4 pb-2">
+                        <a class="navbar-brand mb-2" href="#top">
+                            <img src="being_this_guy_written.png" class="footer-logo smoothscroll" alt="main logo">
+                            <!-- <i class="bi-back"></i>
+                            <span>Topic</span> -->
+                        </a>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6">
+                        <h6 class="site-footer-title mb-3">Resources</h6>
+
+                        <ul class="site-footer-links">
+                            <li class="site-footer-link-item">
+                                <a href="#" class="site-footer-link">Home</a>
+                            </li>
+
+                            <li class="site-footer-link-item">
+                                <a href="#" class="site-footer-link">How it works</a>
+                            </li>
+
+                            <!-- <li class="site-footer-link-item">
+                                <a href="#" class="site-footer-link">FAQs</a>
+                            </li> -->
+
+                            <li class="site-footer-link-item">
+                                <a href="#section_2" class="site-footer-link">Products</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6 mb-4 mb-lg-0">
+                        <h6 class="site-footer-title mb-3">Get In Touch</h6>
+
+                        <p class="text-white d-flex mb-1">
+                            <a href="tel: 958-800-8144" class="site-footer-link">
+                                <!-- 958-800-8144 -->
+                                <span class="site-footer-icons bi-telephone-fill" id="basic-addon1">
+                                </span>
+                                <span class="site-footer-icons" id="basic-addon1">
+                                    958-800-8144
+                                </span>
+                            </a>
+                        </p>
+
+                        <p class="text-white d-flex">
+                            <a href="mailto:beingthisguy.btg@gmail.com" class="site-footer-link">
+                                <span class="site-footer-icons bi-envelope" id="basic-addon1">
+                                    <!-- beingthisguy.btg@gmail.com -->&nbsp E-mail Us
+                                </span>
+                            </a>
+                        </p>
+                        <!-- <div class="social-share d-flex"> -->
+                            <!-- <p class="text-white me-4">Share:</p> -->
+
+                            
+
+                            <!-- <a href="#" class="custom-icon bi-bookmark ms-auto"></a> -->
+                        <!-- </div> -->
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-12 mt-4 mt-lg-0 ms-auto">
+                        <!-- <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            English</button>
+
+                            <ul class="dropdown-menu">
+                                <li><button class="dropdown-item" type="button">Thai</button></li>
+
+                                <li><button class="dropdown-item" type="button">Myanmar</button></li>
+
+                                <li><button class="dropdown-item" type="button">Arabic</button></li>
+                            </ul>
+                        </div> -->
+                        <ul class="social-icon">
+                            <li class="social-icon-item">
+                                <a href="#" target=”_blank” class="social-icon-link bi-facebook"></a>
+                            </li>
+
+                            <li class="social-icon-item">
+                                <a href="https://www.instagram.com/being_this_guy?igsh=MzRlODBiNWFlZA==" target=”_blank” class="social-icon-link bi-instagram"></a>
+                            </li>
+
+                            <li class="social-icon-item">
+                                <a href="https://pin.it/TezYyiaQ0" target=”_blank” class="social-icon-link bi-pinterest"></a>
+                            </li>
+                        </ul>
+
+                        <p class="copyright-text mt-lg-5 mt-4">Copyright © 2024 Being This Guy, All Rights Reserved</p>
+                        <!-- <p class="copyright-text mt-lg-5 mt-4">All Rights Reserved</p> -->
+
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+
+
+        <!-- JAVASCRIPT FILES -->
+        <script src="jquery.min.js"></script>
+        <script src="bootstrap.bundle.min.js"></script>
+        <script src="jquery.sticky.js"></script>
+        <script src="click-scroll.js"></script>
+        <script src="custom.js"></script>
+        <script src="filter.js"></script>
+
+
+    </body>
+</html>
